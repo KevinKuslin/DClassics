@@ -1,4 +1,4 @@
-package com.example.dclassicsbooks.adapter;
+package com.example.dclassicsbooks.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dclassicsbooks.R;
-import com.example.dclassicsbooks.model.Book;
+import com.example.dclassicsbooks.models.Book;
 
 import java.util.ArrayList;
 

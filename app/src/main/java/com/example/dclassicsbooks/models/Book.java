@@ -1,4 +1,4 @@
-package com.example.dclassicsbooks.model;
+package com.example.dclassicsbooks.models;
 
 public class Book {
 
