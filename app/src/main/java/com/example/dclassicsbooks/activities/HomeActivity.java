@@ -1,11 +1,14 @@
 package com.example.dclassicsbooks.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.dclassicsbooks.R;
 import com.example.dclassicsbooks.adapters.BookAdapter;
@@ -57,6 +60,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
+
+        setupNavigationDrawer();
+        findViewById(R.id.viewAllBooks).setOnClickListener(v ->
+                startActivity(new Intent(this, BooksActivity.class)));
 
         String message = getIntent().getStringExtra("toast_message");
         if (message != null) {
@@ -165,6 +172,12 @@ public class HomeActivity extends AppCompatActivity {
         sliderHandler.postDelayed(sliderRunnable, 5000);
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        ((DrawerLayout) findViewById(R.id.homeDrawer)).closeDrawer(GravityCompat.START, false);
+    }
+
     private void updateDots(int position) {
         for(int i = 0; i < dots.length; i++){
             if(i == position){
@@ -227,6 +240,19 @@ public class HomeActivity extends AppCompatActivity {
             if(current > 0){
                 storePager.setCurrentItem(current - 1, true);
             }
+        });
+    }
+
+    private void setupNavigationDrawer() {
+        DrawerLayout drawer = findViewById(R.id.homeDrawer);
+        findViewById(R.id.menuBtn).setOnClickListener(v -> drawer.openDrawer(GravityCompat.START));
+        findViewById(R.id.navHome).setOnClickListener(v -> drawer.closeDrawer(GravityCompat.START));
+        findViewById(R.id.navBooks).setOnClickListener(v -> startActivity(new Intent(this, BooksActivity.class)));
+        findViewById(R.id.navStore).setOnClickListener(v -> startActivity(new Intent(this, StoreActivity.class)));
+        findViewById(R.id.navLogout).setOnClickListener(v -> {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         });
     }
 }

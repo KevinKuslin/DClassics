@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DClassicsBooks">
         <activity
+            android:name=".activities.StoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.BooksActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.BooksDetailsActivity"
             android:exported="false" />
         <activity
