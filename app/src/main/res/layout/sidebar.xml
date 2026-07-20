@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/drawer_header" />
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" />
+
+    <TextView android:id="@+id/navHome" android:layout_width="match_parent" android:layout_height="60dp" android:drawableStart="@drawable/ic_drawer_home" android:drawablePadding="12dp" android:gravity="center_vertical" android:paddingHorizontal="18dp" android:text="Home" android:textColor="@color/primary_blue" android:textSize="16sp" android:fontFamily="@font/montserrat_semibold" />
+    <TextView android:id="@+id/navBooks" android:layout_width="match_parent" android:layout_height="60dp" android:drawableStart="@drawable/ic_drawer_books" android:drawablePadding="12dp" android:gravity="center_vertical" android:paddingHorizontal="18dp" android:text="All Books" android:textColor="@color/primary_blue" android:textSize="16sp" android:fontFamily="@font/montserrat_semibold" />
+    <TextView android:id="@+id/navStore" android:layout_width="match_parent" android:layout_height="60dp" android:drawableStart="@drawable/ic_drawer_store" android:drawablePadding="12dp" android:gravity="center_vertical" android:paddingHorizontal="18dp" android:text="Our Store" android:textColor="@color/primary_blue" android:textSize="16sp" android:fontFamily="@font/montserrat_semibold" />
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="10dp" android:background="#DDDDDD" />
+    <TextView android:id="@+id/navLogout" android:layout_width="match_parent" android:layout_height="60dp" android:drawableStart="@drawable/ic_drawer_logout" android:drawablePadding="12dp" android:gravity="center_vertical" android:paddingHorizontal="18dp" android:text="Log Out" android:textColor="#B00020" android:textSize="16sp" android:fontFamily="@font/montserrat_semibold" />
+</LinearLayout>
