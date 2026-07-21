@@ -20,6 +20,60 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="@id/blueHeader"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Label kecil -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Peter J. Boettke"
+                android:textColor="#E0E0E0"
+                android:textSize="18sp"/>
+
+            <!-- Judul -->
+            <TextView
+                android:id="@+id/tvBookTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Living&#10;Economics"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="38sp"
+                android:lineSpacingExtra="-4dp"/>
+
+            <!-- Rating -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_star"
+                    android:tint="@color/rating_star"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="4.7 / 5.0"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
