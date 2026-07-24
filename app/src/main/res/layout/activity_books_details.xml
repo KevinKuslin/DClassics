@@ -227,16 +227,40 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
+            <!-- Subtitle "Fill the Information Below" -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp"
+                android:layout_marginHorizontal="24dp">
+
+                <View
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#214467" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Fill the Information Below"
+                    android:textSize="16sp"
+                    android:textColor="#808080" />
+            </LinearLayout>
+
             <!-- Card Form Order -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="16dp"
                 app:cardBackgroundColor="#F2F0EB"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="0dp">
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -251,13 +275,25 @@
                         android:textStyle="bold"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <!-- Wrapper CardView buat bikin EditText melengkung & putih -->
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_marginTop="8dp"
-                        android:hint="e.g Jalan Indonesia Raya..."
-                        android:paddingHorizontal="16dp"
-                        android:textSize="14sp" />
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <EditText
+                            android:id="@+id/etAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="e.g Jalan Indonesia Raya..."
+                            android:paddingHorizontal="16dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black" />
+                    </androidx.cardview.widget.CardView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -267,27 +303,63 @@
                         android:textStyle="bold"
                         android:textColor="@color/black" />
 
-                    <EditText
+                    <!-- Wrapper CardView buat bikin EditText melengkung & putih -->
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_marginTop="8dp"
-                        android:hint="081234567890"
-                        android:inputType="phone"
-                        android:paddingHorizontal="16dp"
-                        android:textSize="14sp" />
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="#FFFFFF">
 
+                        <EditText
+                            android:id="@+id/etAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="081234567890"
+                            android:inputType="number"
+                            android:digits="0123456789"
+                            android:paddingHorizontal="16dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black" />
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Tombol Order Now dengan icon cart -->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnOrderNow"
                         android:layout_width="match_parent"
                         android:layout_height="54dp"
                         android:layout_marginTop="24dp"
                         android:text="Order Now"
+                        app:icon="@drawable/ic_cart"
                         app:iconGravity="textStart"
                         app:cornerRadius="12dp"
                         android:backgroundTint="#214467" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <!-- Container Tombol Back di Kanan Bawah -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginBottom="40dp"
+                android:gravity="end">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="64dp"
+                    android:layout_height="54dp"
+                    app:icon="@drawable/ic_arrow_left"
+                    app:iconSize="32dp"
+                    app:iconTint="#FFFFFF"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:cornerRadius="12dp"
+                    android:backgroundTint="#214467" />
+            </LinearLayout>
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
