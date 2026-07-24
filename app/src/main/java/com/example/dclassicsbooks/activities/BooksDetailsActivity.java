@@ -88,27 +88,32 @@ public class BooksDetailsActivity extends AppCompatActivity {
 
         btnOrderNow.setOnClickListener(v -> {
 
+            // Ambil text dari inputan dan hilangkan spasi berlebih
             String address = etAddress.getText().toString().trim();
             String phone = etPhoneNumber.getText().toString().trim();
 
+            // Validasi apakah Address kosong
             if (address.isEmpty()) {
                 etAddress.setError("Address tidak boleh kosong!");
                 etAddress.requestFocus();
-                return;
+                return; // Stop proses di sini
             }
 
+            // Validasi apakah Phone Number kosong
             if (phone.isEmpty()) {
                 etPhoneNumber.setError("Phone Number tidak boleh kosong!");
                 etPhoneNumber.requestFocus();
-                return;
+                return; // Stop proses di sini
             }
 
+            // Validasi apakah Phone Number HANYA berisi angka
             if (!phone.matches("[0-9]+")) {
                 etPhoneNumber.setError("Phone Number hanya boleh berisi angka!");
                 etPhoneNumber.requestFocus();
-                return;
+                return; // Stop proses di sini
             }
 
+            // Kalau semua inputan aman, baru jalankan pop-up dialog
             showOrderSuccessDialog();
         });
     }
