@@ -80,12 +80,35 @@ public class BooksDetailsActivity extends AppCompatActivity {
 
 
         // =========================
-        // ORDER NOW BUTTON
+        // ORDER NOW BUTTON & VALIDATION
         // =========================
-        MaterialButton btnOrderNow =
-                findViewById(R.id.btnOrderNow);
+        android.widget.EditText etAddress = findViewById(R.id.etAddress);
+        android.widget.EditText etPhoneNumber = findViewById(R.id.etPhoneNumber);
+        MaterialButton btnOrderNow = findViewById(R.id.btnOrderNow);
 
         btnOrderNow.setOnClickListener(v -> {
+
+            String address = etAddress.getText().toString().trim();
+            String phone = etPhoneNumber.getText().toString().trim();
+
+            if (address.isEmpty()) {
+                etAddress.setError("Address tidak boleh kosong!");
+                etAddress.requestFocus();
+                return;
+            }
+
+            if (phone.isEmpty()) {
+                etPhoneNumber.setError("Phone Number tidak boleh kosong!");
+                etPhoneNumber.requestFocus();
+                return;
+            }
+
+            if (!phone.matches("[0-9]+")) {
+                etPhoneNumber.setError("Phone Number hanya boleh berisi angka!");
+                etPhoneNumber.requestFocus();
+                return;
+            }
+
             showOrderSuccessDialog();
         });
     }

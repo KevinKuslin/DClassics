@@ -111,40 +111,58 @@
         android:contentDescription="DClassics" />
 
     <!-- Divider -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="14dp"
-        android:background="#DDDDDD" />
-
     <!-- View Book -->
-    <TextView
-        android:id="@+id/btnViewBook"
+    <LinearLayout
+        android:id="@+id/btnViewBookLayout"
         android:layout_width="match_parent"
         android:layout_height="38dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_view_book_button"
-        android:drawableStart="@drawable/ic_eye"
-        android:drawablePadding="7dp"
-        android:fontFamily="@font/montserrat_medium"
         android:gravity="center"
-        android:text="View Book"
-        android:textColor="#214467"
-        android:textSize="10sp" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_eye"
+            android:contentDescription="View Book Icon" />
+
+        <TextView
+            android:id="@+id/btnViewBook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="View Book"
+            android:textColor="#214467"
+            android:textSize="10sp" />
+    </LinearLayout>
 
     <!-- Continue Ordering -->
-    <TextView
-        android:id="@+id/btnContinueOrdering"
+    <LinearLayout
+        android:id="@+id/btnContinueOrderingLayout"
         android:layout_width="match_parent"
         android:layout_height="38dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/bg_continue_ordering_button"
-        android:drawableStart="@drawable/ic_cart"
-        android:drawablePadding="7dp"
-        android:fontFamily="@font/montserrat_medium"
         android:gravity="center"
-        android:text="Continue Ordering"
-        android:textColor="#FFFFFF"
-        android:textSize="10sp" />
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_cart"
+            android:contentDescription="Cart Icon" />
+
+        <TextView
+            android:id="@+id/btnContinueOrdering"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Continue Ordering"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
+    </LinearLayout>
 
 </LinearLayout>
