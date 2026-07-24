@@ -88,32 +88,27 @@ public class BooksDetailsActivity extends AppCompatActivity {
 
         btnOrderNow.setOnClickListener(v -> {
 
-            // Ambil text dari inputan dan hilangkan spasi berlebih
             String address = etAddress.getText().toString().trim();
             String phone = etPhoneNumber.getText().toString().trim();
 
-            // Validasi apakah Address kosong
             if (address.isEmpty()) {
                 etAddress.setError("Address tidak boleh kosong!");
                 etAddress.requestFocus();
-                return; // Stop proses di sini
+                return;
             }
 
-            // Validasi apakah Phone Number kosong
             if (phone.isEmpty()) {
                 etPhoneNumber.setError("Phone Number tidak boleh kosong!");
                 etPhoneNumber.requestFocus();
-                return; // Stop proses di sini
+                return;
             }
 
-            // Validasi apakah Phone Number HANYA berisi angka
             if (!phone.matches("[0-9]+")) {
                 etPhoneNumber.setError("Phone Number hanya boleh berisi angka!");
                 etPhoneNumber.requestFocus();
-                return; // Stop proses di sini
+                return;
             }
 
-            // Kalau semua inputan aman, baru jalankan pop-up dialog
             showOrderSuccessDialog();
         });
     }
@@ -134,10 +129,8 @@ public class BooksDetailsActivity extends AppCompatActivity {
                 R.layout.activity_dialog_order
         );
 
-        // Klik luar popup tidak menutup dialog
         dialog.setCanceledOnTouchOutside(false);
 
-        // Back button masih bisa menutup
         dialog.setCancelable(true);
 
 
@@ -156,8 +149,6 @@ public class BooksDetailsActivity extends AppCompatActivity {
 
             dialog.dismiss();
 
-            // Nanti action View Book bisa
-            // ditambahkan di sini.
         });
 
 
@@ -182,18 +173,15 @@ public class BooksDetailsActivity extends AppCompatActivity {
 
         if (window != null) {
 
-            // Background popup transparan
             window.setBackgroundDrawable(
                     new ColorDrawable(Color.TRANSPARENT)
             );
 
-            // Lebar popup
             window.setLayout(
                     WindowManager.LayoutParams.WRAP_CONTENT,
                     WindowManager.LayoutParams.WRAP_CONTENT
             );
 
-            // Background activity menjadi gelap
             WindowManager.LayoutParams params =
                     window.getAttributes();
 
