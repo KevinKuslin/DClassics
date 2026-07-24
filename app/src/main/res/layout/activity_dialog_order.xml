@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bg_order"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingTop="28dp"
+    android:paddingBottom="24dp">
+
+    <!-- Success Icon -->
+    <ImageView
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:src="@drawable/ic_success_green"
+        android:contentDescription="Order successful" />
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Order Successful!"
+        android:textColor="#111111"
+        android:textSize="17sp" />
+
+    <!-- Green underline -->
+    <View
+        android:layout_width="52dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:background="#4E927A" />
+
+    <!-- Description -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:lineSpacingExtra="2dp"
+        android:text="Your book order has been placed&#10;successfully."
+        android:textColor="#555555"
+        android:textSize="10sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="A receipt has been sent to your e-mail"
+        android:textColor="#555555"
+        android:textSize="9sp" />
+
+    <!-- Receipt Box -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_receipt_email"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_email_green"
+            android:contentDescription="Email" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="Receipt sent to:"
+                android:textColor="#777777"
+                android:textSize="8sp" />
+
+            <TextView
+                android:id="@+id/tvReceiptEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="a2@multigmail.com"
+                android:textColor="#222222"
+                android:textSize="8sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- DClassics Logo -->
+    <ImageView
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/logo_dclassics"
+        android:contentDescription="DClassics" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        android:background="#DDDDDD" />
+
+    <!-- View Book -->
+    <TextView
+        android:id="@+id/btnViewBook"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_view_book_button"
+        android:drawableStart="@drawable/ic_eye"
+        android:drawablePadding="7dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="View Book"
+        android:textColor="#214467"
+        android:textSize="10sp" />
+
+    <!-- Continue Ordering -->
+    <TextView
+        android:id="@+id/btnContinueOrdering"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_continue_ordering_button"
+        android:drawableStart="@drawable/ic_cart"
+        android:drawablePadding="7dp"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:text="Continue Ordering"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp" />
+
+</LinearLayout>
