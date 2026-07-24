@@ -313,7 +313,7 @@
                         app:cardBackgroundColor="#FFFFFF">
 
                         <EditText
-                            android:id="@+id/etAddress"
+                            android:id="@+id/etPhoneNumber"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"

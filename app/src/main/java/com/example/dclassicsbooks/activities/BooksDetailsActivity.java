@@ -129,10 +129,8 @@ public class BooksDetailsActivity extends AppCompatActivity {
                 R.layout.activity_dialog_order
         );
 
-        // Klik luar popup tidak menutup dialog
         dialog.setCanceledOnTouchOutside(false);
 
-        // Back button masih bisa menutup
         dialog.setCancelable(true);
 
 
@@ -151,8 +149,6 @@ public class BooksDetailsActivity extends AppCompatActivity {
 
             dialog.dismiss();
 
-            // Nanti action View Book bisa
-            // ditambahkan di sini.
         });
 
 
@@ -177,18 +173,15 @@ public class BooksDetailsActivity extends AppCompatActivity {
 
         if (window != null) {
 
-            // Background popup transparan
             window.setBackgroundDrawable(
                     new ColorDrawable(Color.TRANSPARENT)
             );
 
-            // Lebar popup
             window.setLayout(
                     WindowManager.LayoutParams.WRAP_CONTENT,
                     WindowManager.LayoutParams.WRAP_CONTENT
             );
 
-            // Background activity menjadi gelap
             WindowManager.LayoutParams params =
                     window.getAttributes();
 
