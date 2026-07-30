@@ -22,7 +22,7 @@
             android:layout_height="48dp"
             android:scaleType="centerCrop"
             android:src="@drawable/profile_dclassics"
-            app:shapeAppearanceOverlay="@style/RoundedImage" />
+            app:shapeAppearanceOverlay="@style/CircleImage" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -30,6 +30,7 @@
             android:layout_marginStart="12dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tvDrawerGreeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"

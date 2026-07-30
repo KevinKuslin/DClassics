@@ -98,6 +98,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvGreetingName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Reeders!"
@@ -138,7 +139,7 @@
                     android:layout_height="64dp"
                     android:src="@drawable/profile_dclassics"
                     android:scaleType="centerCrop"
-                    app:shapeAppearanceOverlay="@style/RoundedImage"
+                    app:shapeAppearanceOverlay="@style/CircleImage"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>

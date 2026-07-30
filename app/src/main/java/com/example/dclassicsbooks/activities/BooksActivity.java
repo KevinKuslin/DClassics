@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.dclassicsbooks.R;
 import com.example.dclassicsbooks.adapters.BookCatalogAdapter;
 import com.example.dclassicsbooks.models.Book;
+import com.example.dclassicsbooks.utils.UserSession;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ public class BooksActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
+        UserSession.applyUsername(this);
         populateBooks();
         DrawerLayout drawer = findViewById(R.id.booksDrawer);
         search = findViewById(R.id.etSearchBooks);
@@ -52,10 +54,10 @@ public class BooksActivity extends AppCompatActivity {
     private void populateBooks() {
         allBooks.add(new Book("Living Economics", "Peter J. Boettke", 5f, R.drawable.book1, "Finance", false));
         allBooks.add(new Book("Atomic Habits", "James Clear", 4.8f, R.drawable.book3, "Self Growth", false));
-        allBooks.add(new Book("The Wealth of Nations", "Adam Smith", 4.7f, R.drawable.book2, "Economics", false));
+        allBooks.add(new Book("Christopher Columbus", "Kristal Zahide", 4.7f, R.drawable.book2, "History", false));
         allBooks.add(new Book("Sherlock Holmes", "Arthur Conan Doyle", 4.6f, R.drawable.book4, "Mystery", true));
-        allBooks.add(new Book("Pride and Prejudice", "Jane Austen", 4.5f, R.drawable.book2, "Romance", true));
-        allBooks.add(new Book("The Great Gatsby", "F. Scott Fitzgerald", 4.4f, R.drawable.book3, "Classic", true));
+        allBooks.add(new Book("Pride and Prejudice", "Jane Austen", 4.5f, R.drawable.book5, "Romance", true));
+        allBooks.add(new Book("The Great Gatsby", "F. Scott Fitzgerald", 4.4f, R.drawable.book6, "Classic", true));
     }
     private void applyFilters() {
         String keyword = search.getText().toString().trim().toLowerCase(Locale.getDefault());

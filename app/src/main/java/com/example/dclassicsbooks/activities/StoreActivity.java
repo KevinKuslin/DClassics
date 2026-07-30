@@ -11,9 +11,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.example.dclassicsbooks.R;
 import com.example.dclassicsbooks.adapters.StoreCatalogAdapter;
+import com.example.dclassicsbooks.utils.UserSession;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,12 +30,20 @@ public class StoreActivity extends AppCompatActivity {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
+        UserSession.applyUsername(this);
         populateStores();
         DrawerLayout drawer = findViewById(R.id.storeDrawer);
         RecyclerView recyclerView = findViewById(R.id.rvStores);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new StoreCatalogAdapter(allStores);
         recyclerView.setAdapter(adapter);
+        ViewCompat.setOnApplyWindowInsetsListener(recyclerView, (view, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            int extraBottom = (int) (28 * getResources().getDisplayMetrics().density);
+            view.setPadding(0, 0, 0, systemBars.bottom + extraBottom);
+            return insets;
+        });
+        ViewCompat.requestApplyInsets(recyclerView);
         findViewById(R.id.btnMenu).setOnClickListener(v -> drawer.openDrawer(GravityCompat.START));
         setupNavigation(drawer);
         EditText search = findViewById(R.id.etSearchStores);
@@ -42,9 +54,9 @@ public class StoreActivity extends AppCompatActivity {
         });
     }
     private void populateStores() {
-        allStores.add(new StoreCatalogAdapter.StoreListing("Popular Book Store", "4.3/5", "120", "East Jakarta, Indonesia", "Large collection of popular books.", "$$", "1.2 km", "Open Now", "Bestseller", "Affordable", "#214C70", "#3E7C66", R.drawable.dclassics_store1_periplus));
-        allStores.add(new StoreCatalogAdapter.StoreListing("Books & Beyond", "4.6/5", "78", "West Jakarta, Indonesia", "Perfect for academic learners.", "$$$", "9.5 km", "Open Now", "Academic", "Fiction", "#CC5500", "#9F0000", R.drawable.dclassics_store4_crossword));
-        allStores.add(new StoreCatalogAdapter.StoreListing("Gunung Agung", "4.5/5", "137", "Central Depok, Indonesia", "Diverse collections of books.", "$$", "13.2 km", "Closed", "General", "Bestseller", "#4A0979", "#214C70", R.drawable.dclassics_store5_gramedia));
+        allStores.add(new StoreCatalogAdapter.StoreListing("Periplus Book Store", "4.3/5", "120", "East Jakarta, Indonesia", "Large collection of popular books.", "$$", "1.2 km", "Open Now", "Bestseller", "Affordable", "#214C70", "#3E7C66", R.drawable.dclassics_store1_periplus));
+        allStores.add(new StoreCatalogAdapter.StoreListing("Crossword", "4.6/5", "78", "West Jakarta, Indonesia", "Perfect for academic learners.", "$$$", "9.5 km", "Open Now", "Academic", "Fiction", "#CC5500", "#9F0000", R.drawable.dclassics_store4_crossword));
+        allStores.add(new StoreCatalogAdapter.StoreListing("Gramedia", "4.5/5", "137", "Central Depok, Indonesia", "Diverse collections of books.", "$$", "13.2 km", "Closed", "General", "Bestseller", "#4A0979", "#214C70", R.drawable.dclassics_store5_gramedia));
         allStores.add(new StoreCatalogAdapter.StoreListing("Kinokuniya Store", "4.5/5", "137", "Kuala Lumpur, Malaysia", "Broad child-friendly collections.", "$", "212 km", "Open Now", "Affordable", "Kids", "#3E7C66", "#C49A00", R.drawable.dclassics_store2_kino));
     }
     private void filter(String query) {

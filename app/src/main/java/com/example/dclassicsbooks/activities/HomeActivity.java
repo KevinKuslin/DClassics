@@ -14,6 +14,7 @@ import com.example.dclassicsbooks.R;
 import com.example.dclassicsbooks.adapters.BookAdapter;
 import com.example.dclassicsbooks.models.Book;
 import com.example.dclassicsbooks.utils.ToastHelper;
+import com.example.dclassicsbooks.utils.UserSession;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
 
+        UserSession.applyUsername(this);
         setupNavigationDrawer();
         findViewById(R.id.viewAllBooks).setOnClickListener(v ->
                 startActivity(new Intent(this, BooksActivity.class)));

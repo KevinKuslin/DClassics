@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -24,6 +25,7 @@ import android.widget.TextView;
 import android.text.Html;
 import android.widget.TextView;
 import com.example.dclassicsbooks.utils.ToastHelper;
+import com.example.dclassicsbooks.utils.UserSession;
 
 import com.example.dclassicsbooks.activities.HomeActivity;
 
@@ -61,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        configureKeyboardScrolling();
 
         btnLogin.setOnClickListener(v -> {
             String username = etUsername.getText().toString().trim();
@@ -72,11 +75,37 @@ public class LoginActivity extends AppCompatActivity {
                         R.drawable.ic_error);
             }
             else{
+                UserSession.saveUsername(this, username);
                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                 intent.putExtra("toast_message", "Login successful!");
                 startActivity(intent);
                 finish();
             }
         });
+    }
+
+    private void configureKeyboardScrolling() {
+        ScrollView scrollView = findViewById(R.id.main);
+        ViewCompat.setOnApplyWindowInsetsListener(scrollView, (view, insets) -> {
+            int imeBottom = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom;
+            int systemBottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            view.setPadding(0, 0, 0, Math.max(imeBottom, systemBottom));
+            return insets;
+        });
+        etUsername.setOnFocusChangeListener((view, hasFocus) -> { if (hasFocus) revealField(scrollView, view); });
+        etPassword.setOnFocusChangeListener((view, hasFocus) -> { if (hasFocus) revealField(scrollView, view); });
+    }
+
+    private void revealField(ScrollView scrollView, android.view.View field) {
+        scrollView.postDelayed(() -> {
+            int targetY = field.getTop();
+            android.view.View parent = (android.view.View) field.getParent();
+            while (parent != null && parent != scrollView) {
+                targetY += parent.getTop();
+                parent = parent.getParent() instanceof android.view.View
+                        ? (android.view.View) parent.getParent() : null;
+            }
+            scrollView.smoothScrollTo(0, Math.max(0, targetY - 200));
+        }, 350);
     }
 }

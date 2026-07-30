@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_auth_dclassics"
+    android:clipToPadding="false"
     android:fillViewport="true"
     tools:context=".activities.LoginActivity">
 
@@ -99,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Username or E-mail"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -110,6 +112,8 @@
                 android:background="@drawable/auth_edittext_bottom_line"
                 android:hint="Enter your username or email"
                 android:paddingLeft="15dp"
+                android:textColor="#1F1F1F"
+                android:textColorHint="#666666"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -123,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Password"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -149,6 +154,8 @@
                     android:paddingTop="0dp"
                     android:paddingRight="0dp"
                     android:paddingBottom="0dp"
+                    android:textColor="#1F1F1F"
+                    android:textColorHint="#666666"
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
